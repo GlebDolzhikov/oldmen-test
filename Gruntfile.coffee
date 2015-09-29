@@ -2,6 +2,7 @@ module.exports = (grunt) ->
   require('load-grunt-tasks')(grunt)
   require('time-grunt')(grunt)
 
+
   path = require('path')
 
   # Project configuration.
@@ -14,7 +15,9 @@ module.exports = (grunt) ->
     bower_concat:
       dist:
         dest: '<%= appConfig.app %>/js/vendor.js'
-
+        cssDest: '<%= appConfig.app %>/css/lib.css'
+        mainFiles: 
+          bootstrap: ["dist/css/bootstrap.min.css","dist/js/bootstrap.js"]
     clean:
       rebuild:
         src: 'dist'
@@ -28,11 +31,26 @@ module.exports = (grunt) ->
             cwd: '<%= appConfig.app %>'
             dest: '<%= appConfig.dist %>'
             src: [
-              'js/**/*.js',
+              'js/vendor.js',
               '*.html',
-              'views/**/*.html'
+              'views/**/*.html',
+              'css/**/*.css'
             ]
           }
         ]
+    uglify:
+      options: 
+        mangle: false
+      my_target: 
+        files: 
+          'dist/js/output.min.js': 'app/js/controllers/home.js'
+    connect: 
+      server: 
+        options: 
+          port: 9001
+          keepalive: true
+          open: 
+            target: 'http://localhost:9001/dist/'
 
-  grunt.registerTask 'default', ['clean:rebuild', 'bower_concat:dist', 'copy:dist']
+    grunt.registerTask 'default', ['clean:rebuild', 'bower_concat:dist', 'uglify','copy:dist','connect' ]
+

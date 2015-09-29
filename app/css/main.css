@@ -1,0 +1,49 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#9b59b6+0,3794db+52,1abc9c+100 */
+background: #9b59b6; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #9b59b6 0%, #3794db 52%, #1abc9c 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#9b59b6), color-stop(52%,#3794db), color-stop(100%,#1abc9c)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg, #9b59b6 0%,#3794db 52%,#1abc9c 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg, #9b59b6 0%,#3794db 52%,#1abc9c 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg, #9b59b6 0%,#3794db 52%,#1abc9c 100%); /* IE10+ */
+background: linear-gradient(135deg, #9b59b6 0%,#3794db 52%,#1abc9c 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b59b6', endColorstr='#1abc9c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+.modal-header {
+	border-bottom: 0;
+}
+
+.modal-header .close {
+    font-size: 40px;
+        margin-top: -10px;
+}
+
+.mySelect {
+	    background-color: rgba(240, 248, 255, 0);
+	        color: white;
+	            border: 1px solid #FFF;
+	                margin: 12px;
+    border-radius: 13px;
+
+}
+
+
+
+.mySelect option {
+	background-color: #3794db;
+	 
+}
+
+#map{
+	position: absolute;
+	width: 100%;
+	padding: 20px
+}
+

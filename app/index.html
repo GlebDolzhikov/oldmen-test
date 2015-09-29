@@ -1,17 +1,60 @@
 <!doctype html>
 <html lang="en" ng-app="oldmenTest">
+
 <head>
     <meta charset="utf-8">
 </head>
+
 <body>
-<script src="js/vendor.js"></script>
-<script src="js/app.js"></script>
-<script src="js/controllers/controllers.js"></script>
-<script src="js/controllers/home.js"></script>
+    
+ <link rel="stylesheet" href="css/lib.css">
+    <link rel="stylesheet" href="css/main.css">
 
-<div ng-controller="HomeCtrl">
-    {{ welcome }}
-</div>
+    <script src="js/vendor.js"></script>
+    <script src="js/output.min.js"></script>
 
+    <div  ng-controller="HomeCtrl">
+    <div class="container" id = "map">
+     <div class="row">
+         <div class=" col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12">
+        <select class="form-control mySelect" ng-model="select.region" id='region'>
+            <option ng-repeat="(region, country) in data.countries"
+            value="{{region}}">
+            {{region}}
+        </option>
+        </select>
+        </div>
+         </div>
+
+
+        <div class="row">
+         <div class=" col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12">
+        <select class="form-control mySelect"   id='country'  ng-model="select.country">
+            <option ng-repeat="country in data.countries[select.region]" value="{{country}}">{{country}}</option>
+        </select>
+        </div>
+         </div>
+
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div ng-repeat="contact in data.contacts[select.country]" class="modal-body">
+                        <div role="dialog">
+                            <h2>{{contact.name}} </h2>
+                            <div>Write: <a href='mailto:{{contact.email}}'>{{contact.email}}</a></div>
+                            <div>{{(contact.phone) ? 'Call: '+ contact.phone:''}}</div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
+
 </html>
